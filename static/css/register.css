@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100&display=swap');
+
+*
+{
+    margin:  0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+
+}
+a {
+    color: #fff;
+    transition: 0.3s;
+    text-decoration: none;
+  }
+  
+  a:hover, a:active, a:focus {
+    color: #e3f0ea;
+    font-weight:500;
+    outline: none;
+    text-decoration: none;
+  }
+body{
+    align-items: center;
+    justify-content: center;
+    
+    
+}
+#registerform
+{
+    margin-top: 15vh;
+    margin-bottom: 10vh;
+    padding: 5px;
+}
+@media(max-width:921)
+{
+    #registerform
+    {
+        margin-top: 15vh;
+        margin-bottom: 5vh;
+    }
+
+}
+
+#container_reg{
+    position:relative;
+    max-width: 600px;
+    width:100%;
+    border-radius: 6px;
+    padding: 30px;
+    margin:auto;
+    background-color: #fff;
+    box-shadow: 2px 5px 10px 5px rgba(0,0,0,0.1);
+    border-top: 4px solid rgb(247, 226, 71);
+}
+#container_reg header{
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+#container_reg header::before{
+    content: "";
+    position: absolute;
+    left:0;
+    bottom: -2px;
+    height: 3px;
+    width:27px;
+    border-radius: 8px;
+    background-color: #4070f4;
+}
+#container_reg form{
+
+    position:relative;
+    margin-top: 16px;
+    min-height: 490px;
+    background-color: #fff;
+}
+#container_reg .details{
+    margin-top: 30px;
+}
+#container_reg form .title{
+    display: block;
+    margin-bottom: 8px;
+    font-size:16px;
+    font-weight: 500;
+    margin:6px 0;
+    color:#333;
+}
+#container_reg form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+form .fields .input-field{
+    display: flex;
+    width:calc(100% / 1);
+    flex-direction: column;
+    margin: 4px 1px;
+}
+.input-field label{
+    font-size: 12px;
+    font-weight: 500;
+    color:#2e2e2e;
+}
+.input-field input,textarea,option,select{
+    outline:none;
+    border: 1px solid #aaa;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    padding: 0 15px;
+    height:42px;
+    margin: 8px 2px;
+
+}
+.input-field input:is(:focus, :valid){
+    box-shadow: 0 3px 6px rgba(0,0,0,0.13);
+}
+.input-field input[type="date"]{
+    color:#707070;
+
+}
+.input-field input[type="date"]:valid{
+    color: #333;
+
+}
+#container_reg form button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+   max-width: 150px;
+    width: 100%;
+    border: none;
+    outline: none;
+    color: #fff;
+    opacity: 0.9;
+    margin:20px 0;
+    background-color: #4070f4;
+    transition:  all 0.3s linear;
+    cursor: pointer;
+}
+#container_reg form button:hover{
+    opacity: 1;
+}
+@media(max-width:750px){
+    #container_reg form button{
+    max-width: 130px;
+    margin: 4px;
+    }
+}
+.form button:hover{
+    background-color: #265df2;
+}
+
+@media(max-width:750px){
+    #container_reg form{
+        overflow-y: scroll;
+    }
+    #container_reg form::-webkit-scrollbar{
+        display: none;
+    }
+    form .fields .input-field{
+        width:calc(100% / 1);
+    }
+
+}
+@media (max-width:550px){
+    form .fields .input-field{
+    width:100%;
+    }
+
+}

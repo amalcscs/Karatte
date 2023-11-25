@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>JSA INDIA</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="{% static 'img/logo2.png' %}" rel="icon">
+  <link href="{% static 'img/logo2.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  
+
+  <style>
+    #admin_hero
+    {
+        margin-top: 20vh;
+    }
+   
+    #admin_hero .container{
+
+        margin:auto;
+    }
+    #admin_hero .card
+    {
+        margin: 10px 5px;
+    }
+    .content
+
+    { margin: 5vh;
+        padding: 20px;
+        box-shadow: -1px 16px 20px 1px rgba(173, 171, 171, 0.937);
+    }
+    .content img{
+        padding: 10px;
+       
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+            <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+          <h3 >Admin Dashboard</h3>
+
+          <nav id="navbar" class="navbar" style=" text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <!--======hero =======-->
+
+    <section id="admin_hero">
+        <div class="container">
+            <form action="{% url 'bthupdate' bth.id %}"method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="row text-center">
+                    
+                    <div class="col-lg-3 col-md-12 col-sm-12 text-center">
+                        <div class="container content">
+                            <div class="row">
+                                <div class="col-12 col-md-4 col-lg-6">
+                                    <div class="card" style="width:16em;">
+                                        <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid"  alt="" style=" width:13vh; margin:auto; height:15vh;  ">
+                                        <div class="card-body">
+                                            <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
+                                            <p class="card-text"> Register No: {{ bth.bth_reg }}</p>
+                                            <p class="card-text">Designation: {{ bth.bth_desig }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <div class="container content">
+    
+                            <div class="row pt-2">
+                                <h2 class="m-4">Form for Update</h2>
+                            </div>
+                            <div class="row pt-1">
+                                <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+                                    <input type="text" class="form-control" name="regid" placeholder="Regiser id of Black Belt Holder" required value="{{ bth.bth_reg }}">
+                                </div>
+                            
+                                <div class="col-lg-6 col-md-6 col-sm-12 p-2">
+                                    <input type="text"name="name" class="form-control" placeholder="Name of Black Belt Holder" required value="{{ bth.bth_name}}">
+                                </div>
+                            
+                                <div class="col-lg-4 col-md-6 col-sm-12 p-2">
+                                    <input type="text" class="form-control" name="desig" placeholder="Designation of Black Belt Holder" required value="{{ bth.bth_desig }}">
+                                </div>
+                            
+                                <div class="col-lg-8 col-md-6 col-sm-12 p-2">
+                                    <input type="file"class="form-control" name="img" accept="image/blackbeltholders"  value="{{ bth.bth_image}}">
+                                </div>
+                        
+                                <div class="col-lg-4 col-md-6 col-sm-12 p-2 mt-4">
+                                    <button type="submit" class="btn-primary form-control" >Update Member</button> 
+                                </div>
+                            </div>        
+                        </div> 
+                    </div>
+                </div>
+                
+                
+            </form>
+        </div>
+        
+    </section>
+
+
+<script src="{% static 'js/main.js' %}"></script> 
+</body>
+</html>

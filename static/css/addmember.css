@@ -1,0 +1,13 @@
+@media (min-width: 740px) {
+  #member_add  {
+    width:50%;
+    margin-top: 10vh;
+    margin-left: 10vh;
+  }
+}
+@media (min-width: 740px) {
+  #member_add .container {
+    width:50%;
+    margin-top: 10vh;
+  }
+}

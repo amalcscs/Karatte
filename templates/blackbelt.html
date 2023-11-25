@@ -1,0 +1,331 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>JSA INDIA</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="{% static 'img/logo2.png' %}" rel="icon">
+  <link href="{% static 'img/logo2.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+  <style>
+    .line{
+      border-bottom: 3px solid rgb(244, 228, 4);
+      margin-top: 2vh;
+     }
+   
+     #container-box
+     {
+      display: grid;
+      grid-template-columns:0.80fr 0.80fr 0.80fr;
+    
+     }
+     #container-box .cards
+     {
+      padding: 1rem 0.60rem;
+     
+     }
+     #container-box .card
+     {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      border: none;
+      text-align: center;
+     
+      padding: 2rem;
+     }
+     #container-box .card picture
+     {
+     
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     }
+     #container-box .card picture img
+     {
+      width:60px;
+      padding-bottom: 1vh;
+     }
+     .count-number
+     {
+     
+      height: 32px;
+      width: 32px;
+      background-color: #fc2323;
+      color:#fff;
+      padding: 0.30rem;
+      position: relative;
+      font-weight: 600;
+      border-radius: 50%;
+      font-size: 0.90rem;
+     }
+     .reg-btn
+     {
+      padding: 0.60em 1.1em;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+      font-size: 0.90rem;
+     }
+
+     #members-list
+     {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      
+      height: 500px;
+      padding: 1em;
+     }
+     #members-list .card
+     {
+      border-radius: none;
+     
+     }
+
+
+     .card
+     {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      border: none;
+      text-align: center;
+     }
+     .card h6{
+      font-weight: 500;
+      text-align: center;
+     }
+     .card p{
+      font-size: 0.80rem;
+      text-align: center;
+     }
+     @media(max-width:732px)
+     {
+      #container-box
+      {
+      grid-template-columns:repeat(1,1fr)
+      }
+     }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
+    <div class="container-fluid">
+
+      <div class="row justify-content-center align-items-center">
+        <div class="col-xl-11 d-flex align-items-center justify-content-between">
+          <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+          <h3 >Admin Dashboard</h3>
+
+          <nav id="navbar" class="navbar" style="text-align: center;">
+            
+            <ul>
+              <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+              <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
+          </nav><!-- .navbar -->
+        </div>
+      </div>
+    </div>
+  </header><!-- End Header -->
+
+  <!--======hero =======-->
+
+<section id="admin_hero" >
+  <div class="container" id="container-box">
+    <a href="{% url 'load_associate' %}">
+      <div class="cards">
+        
+        <div class="card">
+          <div class="count-number">
+            <span >{{associate_count}}</span>
+          </div>
+          <picture>
+            <img src="{% static 'img/dummypic1.png' %}">
+          </picture>
+          
+          <h6>Associate Members</h6>
+          <button class="reg-btn">Upload</button>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'load_affilates_form' %}">
+      <div class="cards">
+        
+        <div class="card">
+          <div class="count-number">
+            <span >{{affi_count}}</span>
+          </div>
+          <picture>
+            <img src="{% static 'img/dummypic1.png' %}">
+          </picture>
+          
+          <h6>Affilates Members</h6>
+          <button class="reg-btn">Upload</button>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'load_associate' %}">
+      <div class="cards">
+        
+        <div class="card">
+          <div class="count-number">
+            <span >{{bths_count}}</span>
+          </div>
+          <picture>
+            <img src="{% static 'img/dummypic1.png' %}">
+          </picture>
+          
+          <h6>Black Belt Members</h6>
+          <button class="reg-btn">Upload</button>
+        </div>
+      </div>
+    </a>
+
+
+  </div>
+</section>
+
+
+
+
+
+  <section id="admin_hero">
+    <div class="container">
+      <h3 class="">Associate Members</h3> <p class="line"></p>
+         
+    </div> 
+  </section>
+
+  <section id="member_card">
+    <div class="container ">
+        <div class="row">
+          {% for asso in associate  %}
+            <div class="col-12 col-md-4 col-lg-3">
+              <div class="card" style="margin:15px 10px;">
+                {% if asso.asso_image %}
+                  <img src="{{ asso.asso_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:17vh; ">
+                {% endif %}
+                <div class="card-body" style="text-align:start ;">
+                  <h6 class="card-title"> {{ asso.mname}}</h6>
+                  <p class="card-title">{{asso.mdesig}}</p>
+                  <p class="card-title">{{asso.mposition}}</p>
+                  <a href="{% url 'load_assoupdate' asso.id %}" class="text-success mx-2"><i class="bi bi-pen-fill mx-2"></i>Edit</a>
+                  <a href="{% url 'associate_delete' asso.id %}" class="text-danger mx-3" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+
+  <section id="admin_hero">
+    <div class="container"><br>
+      <h3>AFFILIATES</h3>
+          
+          <p class="line"></p>
+    </div> 
+  </section>
+
+  <section id="member_card">
+    <div class="container ">
+        <div class="row">
+          {% for aff in affi  %}
+            <div class="col-12 col-md-4 col-lg-3">
+              <div class="card" style="margin:15px 10px;">
+                {% if aff.affreg_img %}
+                  <img src="{{ aff.affreg_img.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:18vh; ">
+                {% endif %}
+                <div class="card-body"style="text-align:center ;">
+                  <h6 class="card-title">Name: {{ aff.affreg_name}}</h6>
+                 
+                  <p class="card-title"> 
+                    <span>Rank : {{aff.affrank}}</span> &nbsp;
+                  </p>
+                  <p class="card-title"> 
+                    <span>Register Id : <b>{{aff.register_id}}</b></span> &nbsp;
+                  </p>
+                  <p>
+                    {% if aff.affclub %}
+                    <span>Club: {{aff.affclub}}</span> &nbsp;
+                    {% endif %}
+                    {% if aff.affdistrict %}
+                    <span>District : {{aff.affdistrict}}</span> &nbsp;
+                    {% endif %}
+                    {% if aff.affstate %}
+                    <span>State : {{aff.affstate}}</span> &nbsp; 
+                    {% endif %}
+                  </p>
+                 
+                  <p class="card-title"> Validity : {{aff.affvalid_from}} - {{aff.affvalid_to}} </p>
+                  
+                  <a href="{% url 'affilates_eidt' aff.id %}" class="text-success mx-3"><i class="bi bi-pen-fill mx-2"></i>Edit</a>
+                  <a href="{% url 'affilates_delete' aff.id %}" class="text-danger mx-3" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+
+  <section id="admin_hero">
+    <div class="container"><br>
+      <h3>Black Belt Members</h3>
+          <p class="line"></p>
+    </div> 
+  </section>
+
+  <section id="member_card">
+    <div class="container ">
+        <div class="row">
+          {% for bth in bths  %}
+            <div class="col-12 col-md-4 col-lg-3">
+              <div class="card" style="margin:15px 10px;">
+                {% if bth.bth_image %}
+                  <img src="{{ bth.bth_image.url }}" class="card-img-top img-fluid mt-4"  alt="..."style=" width:16vh; margin:auto; height:18vh; ">
+                {% endif %}
+                <div class="card-body"style="text-align:center ;">
+                  <h6 class="card-title">Name: {{ bth.bth_name}}</h6>
+                  <p class="card-title"> Register No: {{bth.bth_reg}}</p>
+                  <p class="card-title">Designation: {{bth.bth_desig}}</p>
+                  <a href="{% url 'load_bthupdate' bth.id %}" class="text-success mx-3"><i class="bi bi-pen-fill mx-2"></i>Edit</a>
+                  <a href="{% url 'bthdelete' bth.id %}" class="text-danger mx-3" onclick="return confirm('Are you sure ?');"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+    </div>
+  </section>
+
+</body>
+  
+  
+  <!--======end hero====-->
+
+   <!-- Template Main JS File -->
+   <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

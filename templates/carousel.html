@@ -1,0 +1,114 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>JSA INDIA</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link href="{% static 'img/logo2.png' %}" rel="icon">
+  <link href="{% static 'img/logo2.png' %}" rel="apple-touch-icon">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+
+  
+
+
+</head>
+<style>
+  body{
+    background-color: rgb(250, 251, 251);
+  }
+</style>
+
+<body>
+
+ <!-- ======= Header ======= -->
+
+<header id="header" class="fixed-top d-flex align-items-center header-transparent" style="box-shadow: 0px 0px 6px 0px;">
+  <div class="container-fluid">
+
+    <div class="row justify-content-center align-items-center">
+      <div class="col-xl-11 d-flex align-items-center justify-content-between">
+        <a href="#" class="logo1"> <img src="{% static 'img/logo2.png' %}" alt="" class="img-fluid" style="width:10vh;"></a>
+        <h3 >Admin Dashboard</h3>
+
+        <nav id="navbar" class="navbar" style="text-align: center;">
+          
+          <ul>
+            <li><a class="nav-link scrollto active" href="{% url 'load_admin_home' %}">Home</a></li>
+            <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle" style="color:#000;"></i>
+        </nav><!-- .navbar -->
+      </div>
+    </div>
+  </div>
+</header><!-- End Header -->
+
+  <!--======hero =======-->
+<br>
+  <section id="admin_hero">
+    <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+      <div class="row pt-1">
+        <div  class="col-12 col-md-4 col-lg-3 p-3">
+          <input type="file"  class="form-control" accept="carouselimages/"  name="carimgss" required>
+          <p style="font-size:12px; margin:5px;"> Dimentions 1700x720</p>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 p-3">
+          <button type="submit" class="btn-primary" formaction="{% url 'add_carousel_images' %}"><i class="bi bi-plus-circle-fill mx-1"></i>Add</button>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 p-3">
+            <input type="text" class="form-control" placeholder="Title"  name="title"  value="Dummyvalue" hidden>
+        </div>
+        <div class="col-12 col-md-4 col-lg-3 p-3">
+          <input type="text" class="form-control" placeholder="Subtitle" name="subtitle" value="Dummyvalue" hidden>
+        </div>
+        
+      </div>
+    </div>
+
+
+    <div class="container">
+      <hr>
+      <div class="row">
+      {% for i in al %}
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="card m-4">
+            <img  class="card-img-top p-1" src="{{ i.carimage.url }}"  alt="Card image cap">
+              
+            <div class="card-body">
+              <a href="{% url 'load_updatecarosel' i.id %}"  class="text-success mb-2 "><i class="bi bi-pen-fill mx-2"></i>Edit</a>
+              <a href="{% url 'deletecarouselimg' i.id %}"  onclick="return confirm('Are you sure you want to delete?')" class="text-danger mb-2"><i class="bi bi-x-circle-fill mx-2"></i>Remove</a>
+            
+            </div>
+          </div>      
+        </div>
+       {% endfor %}
+      </div>
+    </div>
+   </form>
+
+  </section>
+  
+  <!--======end hero====-->
+   <!-- Template Main JS File -->
+   <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
